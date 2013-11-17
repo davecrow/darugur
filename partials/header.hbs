@@ -1,0 +1,16 @@
+<div role='banner' class="headerThreads">
+	{{#if @blog.logo}}
+		<a class="logoThreads" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>
+	{{/if}}
+	
+	<h1 class="blogTitleThreads">
+		<a title="{{@blog.title}}" href='{{@blog.url}}'>
+		{{{@blog.title}}}
+		</a>
+	</h1>
+	<h2 class="blogDescriptionThreads">
+		<a title="{{@blog.title}}" href='{{@blog.url}}'>
+		{{@blog.description}}
+		</a>
+	</h2>
+</div>

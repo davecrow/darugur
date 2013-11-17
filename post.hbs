@@ -1,0 +1,53 @@
+{{!< default}}
+{{> header}}
+
+<main class="mainThreads" role="main">
+	{{#post}}
+		<article class="articleThreads" role="article" itemscope itemtype="http://schema.org/Article">
+			<header class="postHeaderThreads">
+				<time class="dateThreads" datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">{{date format='dddd DD MMM YYYY'}}</time>
+				<h1 class="postTitleThreads" itemprop="headline">{{title}}</h1>
+			</header>
+
+			<div class="postContentThreads" itemprop="articleBody">
+				{{content}}
+			</div>
+
+			{{#if tags}}
+				<div class="postTagsThreads">
+				Tags: {{tags separator=" | "}}
+				</div>
+			{{/if}}
+
+		    <div class="sharePostThreads">
+		    <h4 class="shareThreads">Share this post: &nbsp;</h4>
+		    <a class="shareThreads icon-twitter" target="_blank" href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}"><span class="hidethisThreads">Twitter</span></a>
+		    <a class="shareThreads icon-facebook" target="_blank" href="http://www.facebook.com/sharer.php?u={{url absolute="true"}}"><span class="hidethisThreads">Facebook</span></a>
+		    <a class="shareThreads icon-gplus" target="_blank" href="https://plus.google.com/share?url={{url absolute="true"}}"><span class="hidethisThreads">Google+</span></a>
+		    </div>
+		        {{#if author}}
+		        <footer class="postFooterThreads">
+		        <address itemscope itemtype="http://schema.org/Person">
+		        {{#if author.image}}
+		        <div class="authorImageThreads"><img src="{{author.image}}" itemprop="image" /></div>
+		        {{/if}}
+		        <h4 class="authorNameThreads"><span itemprop="author">{{author.name}}</span></h4>
+		        {{#if author.website}}
+		        <div class="authorWebsiteThreads"><a href="{{author.website}}" itemprop="url">{{author.website}}</a></div>
+		        {{/if}}
+		        </address>
+		        <div class="authorBioThreads">
+		        <p>{{author.bio}}</p>
+		        </div>
+		        </footer>
+		        {{/if}}
+		</article>
+	{{/post}}
+	{{#if pagination}}
+		<div class="paginationThreads">
+		{{{pagination}}}
+		</div>
+	{{/if}}
+</main>
+
+{{> footer}}

@@ -1,0 +1,35 @@
+{{!< default}}
+{{> header}}
+
+<main class="mainThreads" role="main">
+	{{#foreach posts}}
+		<article class="articleThreads" role="article" itemscope itemtype="http://schema.org/Article">
+			<header class="postHeaderThreads">
+				<time class="dateThreads">
+					{{date format='dddd DD MMM YYYY'}}
+				</time>
+				<h1 class="postTitleThreads" itemprop="headline">
+					<a href="{{{url}}}">{{title}}</a>
+				</h1>
+			</header>
+
+			<div class="postContentThreads" itemprop="articleBody">
+				{{content}}
+			</div>
+
+			{{#if tags}}
+				<div class="postTagsThreads">
+					Tags: {{tags separator=" | "}}
+				</div>
+			{{/if}}
+		</article>
+	{{/foreach}}
+
+	{{#if pagination}}
+		<div class="paginationThreads">
+			{{pagination}}
+		</div>
+	{{/if}}
+</main>
+
+{{> footer}}
